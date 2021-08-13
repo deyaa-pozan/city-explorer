@@ -26,10 +26,10 @@ export class App extends Component {
     const location = e.target.locationinformation.value;
     try {
       const responseWeather = await axios.get(
-        `http://localhost:8080/weather?lon=35.91&lat=31.95&searchQuery=${location}`
+        `${process.env.REACT_APP_SERVER_URL}weather?lon=35.91&lat=31.95&searchQuery=${location}`
       )
       const responseMovie = await axios.get(
-        `http://localhost:8080/movies?searchQuery=${location}`
+        `${process.env.REACT_APP_SERVER_URL}movies?searchQuery=${location}`
       )
       console.log(responseMovie.data);
       console.log(responseWeather.data);
